@@ -1,0 +1,183 @@
+ <ion-header>
+  <ion-toolbar color="light">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Inicio</ion-title>
+    </div>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> 
+
+
+<app-header></app-header>
+
+<!-- <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+ -->
+
+ <ion-content padding>
+  <div class="titulasaso">
+    <h1 class="ion-text-center">Ephinea Store</h1>
+  </div>
+  <div class="logo-grande">
+    <ion-img src="../../../assets/img/logo.png" alt="" style="width: 100px;"></ion-img>
+  </div>
+
+  <div class="plataformas">
+    <ion-grid>
+      <ion-title class="ion-text-center ion-padding">Plataformas</ion-title>
+      <ion-row>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/steam.svg" alt="" style="width: 80px;">
+          <p>Steam</p>
+        </ion-col>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/nintendo-switch.svg" alt="" style="width: 80px;">
+          <p>Switch</p>
+        </ion-col>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/xbox.svg" alt="" style="width: 80px;">
+          <p>Xbox</p>
+        </ion-col>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/playstation.svg" alt="" style="width: 80px;">
+          <p>Playstation</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="categorias">
+    <ion-grid>
+      <ion-title class="ion-text-center ion-padding">Categorias</ion-title>
+      <ion-row>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/sword.webp" alt="" style="width: 80px;">
+          <p>Accion</p>
+        </ion-col>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/chess.png" alt="" style="width: 80px;">
+          <p>RPG</p>
+        </ion-col>
+        <ion-col class="ion-text-center expositor movimiento">
+          <img src="../../../assets/img/basket.png" alt="" style="width: 80px;">
+          <p>Deportes</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-grid>
+    <div class="destacados">
+      <h1 class="ion-text-center ion-padding">Juegos mas vendidos</h1>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="carta">
+          <img alt="ffxvi" src="../../../assets/img/ffxvi.jpeg" class="ion-width-100"/>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Final Fantasy XVI</ion-card-title>
+          </ion-card-header>
+          <h4 class="ion-margin">Playstation</h4>
+          <h5 class="ion-margin">Precio : $40.000</h5>
+            <ion-button fill="solid" class="boton" color="secondary">  
+              Comprar
+              <ion-icon name="card-outline"></ion-icon>
+            </ion-button>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card class="carta">
+          <img alt="ffxvi" src="../../../assets/img/bg3.jpg" class="ion-width-100"/>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Baldurs Gate 3</ion-card-title>
+          </ion-card-header>
+          <h4 class="ion-margin">Steam</h4>
+          <h5 class="ion-margin">Precio : $40.000</h5>
+          <ion-button fill="solid" class="boton" color="secondary">  
+            Comprar
+            <ion-icon name="card-outline"></ion-icon>
+          </ion-button>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12">
+        <ion-card class="carta">
+          <img alt="ffxvi" src="../../../assets/img/ffxvi.jpeg" class="ion-width-100"/>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Final Fantasy XVI</ion-card-title>
+          </ion-card-header>
+          <h4 class="ion-margin">Playstation</h4>
+          <h5 class="ion-margin">Precio : $40.000</h5>
+          <ion-button fill="solid" class="boton" color="secondary">  
+            Comprar
+            <ion-icon name="card-outline"></ion-icon>
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </div> 
+  </ion-grid>
+
+
+  
+ </ion-content>
+
+ <ion-footer>
+  <ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        Mi perfil
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-icon name="cash-outline"></ion-icon>
+        Carro
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-icon name="library"></ion-icon>
+        Library
+      </ion-tab-button>
+      <ion-tab-button tab="search">
+        <ion-icon name="search"></ion-icon>
+        Search
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
+</ion-footer>
+ <!-- <ion-footer>
+  <ion-toolbar color="dark">
+  <h1>holaaaa</h1>
+</ion-toolbar>
+ </ion-footer> -->
+
+
+ 
+<!--  <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="play-circle"></ion-icon>
+      Listen Now
+    </ion-tab-button>
+    <ion-tab-button tab="radio">
+      <ion-icon name="radio"></ion-icon>
+      Radio
+    </ion-tab-button>
+    <ion-tab-button tab="library">
+      <ion-icon name="library"></ion-icon>
+      Library
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      Search
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+ -->
