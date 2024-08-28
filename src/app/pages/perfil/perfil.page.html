@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Perfil</ion-title>
+    </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<app-header></app-header>
+
+<ion-content [fullscreen]="true">
+  <div class="perfil">
+    <h2>Usuario</h2>
+    <h2>correo&#64;gmail.com</h2>
+    <h2>Edad : 20 años</h2>
+    <ion-list class="lista">
+      <h1 class="ion-text-center">Tus juegos</h1>
+      <ion-item class="ion-padding lista-item"  lines="none">
+        <h1>Final Fantasy XVI</h1>
+        <img src="../../../assets/img/ffxvi.jpeg" alt="" width="150px" class="">
+      </ion-item>
+      <ion-item class="ion-padding lista-item "  lines="none">
+        <h1>Baldurs Gate 3</h1>
+        <img src="../../../assets/img/bg3.jpg" alt="" width="150px" class="">
+      </ion-item>
+      <ion-item class="ion-padding lista-item" lines="none">
+        <h1>Diablo 4</h1>
+        <img src="../../../assets/img/d4.png" alt="" width="150px" class="">
+      </ion-item>
+    </ion-list>
+  </div>
+ 
+</ion-content>

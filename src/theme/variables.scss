@@ -4,6 +4,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    margin-left: 10px;
+    margin-right: -8px;
+}
 
 :root{
     --ion-font-family: 'Zilla Slab', sans-serif;
@@ -32,3 +42,5 @@ background-size: cover;
 background-position: center; 
 background-repeat: no-repeat; 
  */
+
+ 

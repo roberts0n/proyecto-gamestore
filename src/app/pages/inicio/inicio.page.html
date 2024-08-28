@@ -1,9 +1,12 @@
- <ion-header>
+  <ion-header>
   <ion-toolbar color="light">
     <div class="titulo">
       <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
       <ion-title>Inicio</ion-title>
     </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -35,19 +38,19 @@
     <ion-grid>
       <ion-title class="ion-text-center ion-padding">Plataformas</ion-title>
       <ion-row>
-        <ion-col class="ion-text-center expositor movimiento">
+        <ion-col size="5.5" class="ion-text-center expositor movimiento ion-padding">
           <img src="../../../assets/img/steam.svg" alt="" style="width: 80px;">
           <p>Steam</p>
         </ion-col>
-        <ion-col class="ion-text-center expositor movimiento">
+        <ion-col size="5.5" class="ion-text-center expositor movimiento ion-padding">
           <img src="../../../assets/img/nintendo-switch.svg" alt="" style="width: 80px;">
           <p>Switch</p>
         </ion-col>
-        <ion-col class="ion-text-center expositor movimiento">
+        <ion-col size="5.5" class="ion-text-center expositor movimiento ion-padding">
           <img src="../../../assets/img/xbox.svg" alt="" style="width: 80px;">
           <p>Xbox</p>
         </ion-col>
-        <ion-col class="ion-text-center expositor movimiento">
+        <ion-col size="5.5" class="ion-text-center expositor movimiento ion-padding">
           <img src="../../../assets/img/playstation.svg" alt="" style="width: 80px;">
           <p>Playstation</p>
         </ion-col>
@@ -58,15 +61,15 @@
     <ion-grid>
       <ion-title class="ion-text-center ion-padding">Categorias</ion-title>
       <ion-row>
-        <ion-col class="ion-text-center expositor movimiento">
-          <img src="../../../assets/img/sword.webp" alt="" style="width: 80px;">
+        <ion-col class="ion-text-center expositor2 movimiento">
+          <img src="../../../assets/img/sword.webp" alt="" style="width: 80px;" [routerLink]="'/categoria'">
           <p>Accion</p>
         </ion-col>
-        <ion-col class="ion-text-center expositor movimiento">
+        <ion-col class="ion-text-center expositor2 movimiento">
           <img src="../../../assets/img/chess.png" alt="" style="width: 80px;">
           <p>RPG</p>
         </ion-col>
-        <ion-col class="ion-text-center expositor movimiento">
+        <ion-col class="ion-text-center expositor2 movimiento">
           <img src="../../../assets/img/basket.png" alt="" style="width: 80px;">
           <p>Deportes</p>
         </ion-col>
