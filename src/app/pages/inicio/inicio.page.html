@@ -7,14 +7,14 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-buttons slot="end">
+     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons>
+    </ion-buttons> 
   </ion-toolbar>
 </ion-header> 
 
 
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 
 <!-- <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -134,21 +134,17 @@
   <ion-toolbar>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        Mi perfil
+      <ion-tab-button [routerLink]="['/inicio']" routerLinkActive="router-link-active"  tab="inicio">
+        <ion-icon name="library"></ion-icon>
+        Inicio
       </ion-tab-button>
-      <ion-tab-button tab="radio">
+      <ion-tab-button tab="radio" [routerLink]="['/carro']" routerLinkActive="router-link-active" >
         <ion-icon name="cash-outline"></ion-icon>
         Carro
       </ion-tab-button>
-      <ion-tab-button tab="library">
-        <ion-icon name="library"></ion-icon>
-        Library
-      </ion-tab-button>
-      <ion-tab-button tab="search">
-        <ion-icon name="search"></ion-icon>
-        Search
+      <ion-tab-button [routerLink]="['/perfil']" routerLinkActive="router-link-active"  tab="home">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        Mi perfil
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

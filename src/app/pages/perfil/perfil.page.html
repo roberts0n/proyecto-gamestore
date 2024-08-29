@@ -13,15 +13,20 @@
   </ion-toolbar>
 </ion-header>
 
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 
 <ion-content [fullscreen]="true">
   <div class="perfil">
-    <h2>Usuario</h2>
-    <h2>correo&#64;gmail.com</h2>
-    <h2>Edad : 20 años</h2>
+    <h1 class="ion-text-center sombra">Mi perfil</h1>
+    <div class="centrado">
+      <div class="info">
+        <h2>Usuario</h2>
+        <h2>correo&#64;gmail.com</h2>
+        <h2>Edad : 20 años</h2>
+      </div>
+    </div>
     <ion-list class="lista">
-      <h1 class="ion-text-center">Tus juegos</h1>
+      <h1 class="ion-text-center sombra">Tus juegos</h1>
       <ion-item class="ion-padding lista-item"  lines="none">
         <h1>Final Fantasy XVI</h1>
         <img src="../../../assets/img/ffxvi.jpeg" alt="" width="150px" class="">
@@ -36,5 +41,26 @@
       </ion-item>
     </ion-list>
   </div>
- 
+ <br>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/inicio']" routerLinkActive="router-link-active"  tab="inicio">
+        <ion-icon name="library"></ion-icon>
+        Inicio
+      </ion-tab-button>
+      <ion-tab-button tab="radio" [routerLink]="['/carro']" routerLinkActive="router-link-active" >
+        <ion-icon name="cash-outline"></ion-icon>
+        Carro
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/perfil']" routerLinkActive="router-link-active"  tab="home">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        Mi perfil
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
+</ion-footer>

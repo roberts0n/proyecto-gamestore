@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Carro</ion-title>
+    </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+     <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header> 
+<ion-content [fullscreen]="true">
+  
+  <ion-card class="lista">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center sombra">Mi carro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list class="lista2">
+        <ion-item class="lista-item">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="../../../assets/img/ffxvi.jpeg" />
+          </ion-thumbnail>
+          <div class="columnas">
+            <ion-label>Final Fantasy XVI</ion-label>
+            <ion-label>Precio: $40000</ion-label>
+          </div>
+        </ion-item>
+        <ion-item class="lista-item">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="../../../assets/img/bg3.jpg" />
+          </ion-thumbnail>
+          <div class="columnas">
+            <ion-label>Baldurs Gate 3</ion-label>
+            <ion-label>Precio: $40000</ion-label>
+          </div>
+        </ion-item>
+  
+        <ion-item class="lista-item">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="../../../assets/img/d4.png" />
+          </ion-thumbnail>
+          <div class="columnas">
+            <ion-label>Diablo IV</ion-label>
+            <ion-label>Precio: $40000</ion-label>
+          </div>
+        </ion-item>
+      </ion-list>
+      <div class="precio" slot="end">
+        <h1 class="ion-text-center sombra">Total : $120000</h1>
+      </div>
+      <ion-button fill="solid" class="boton" color="secondary">  
+        Comprar
+        <ion-icon name="card-outline"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button [routerLink]="['/inicio']" routerLinkActive="router-link-active"  tab="inicio">
+        <ion-icon name="library"></ion-icon>
+        Inicio
+      </ion-tab-button>
+      <ion-tab-button tab="radio" [routerLink]="['/carro']" routerLinkActive="router-link-active" >
+        <ion-icon name="cash-outline"></ion-icon>
+        Carro
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/perfil']" routerLinkActive="router-link-active"  tab="home">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        Mi perfil
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
+</ion-footer>
