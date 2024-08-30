@@ -8,6 +8,10 @@ import { InicioPageRoutingModule } from './inicio-routing.module';
 
 import { InicioPage } from './inicio.page';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { TabsComponent } from 'src/app/components/tabs/tabs.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -15,7 +19,11 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     FormsModule,
     IonicModule,
     InicioPageRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    TabsComponent,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
   ],
   declarations: [InicioPage
   ]

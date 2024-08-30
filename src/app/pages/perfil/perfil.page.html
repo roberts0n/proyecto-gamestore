@@ -16,13 +16,29 @@
 <!-- <app-header></app-header> -->
 
 <ion-content [fullscreen]="true">
-  <div class="perfil">
+  <div class="">
     <h1 class="ion-text-center sombra">Mi perfil</h1>
     <div class="centrado">
       <div class="info">
-        <h2>Usuario</h2>
-        <h2>correo&#64;gmail.com</h2>
-        <h2>Edad : 20 años</h2>
+        <ion-grid>
+          <ion-row class="cuadrado">
+            <ion-col size="6">
+              <img src="../../../assets/img/ffxvi.jpeg" width="" class="foto-perfil">
+            </ion-col>
+            <ion-col size="6" class="centro">
+              <h1 class="sombra ion-padding ion-text-center">Usuario</h1>
+              <h5 class="ion-text-center subtitulo">correo&#64;gmail.com</h5>
+              <h5 class="ion-text-center">Edad : 20 años</h5>
+            </ion-col>
+            <ion-col class="editar2">
+              <!-- <ion-button>Editar perfil</ion-button> -->
+              <button mat-fab extended class="editar">
+                <mat-icon svgIcon="profile">favorite</mat-icon>
+                Editar perfil
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>
     </div>
     <ion-list class="lista">
@@ -44,7 +60,9 @@
  <br>
 </ion-content>
 
-<ion-footer>
+<app-tabs></app-tabs>
+
+<!-- <ion-footer>
   <ion-toolbar>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
@@ -63,4 +81,4 @@
     </ion-tab-bar>
   </ion-tabs>
 </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

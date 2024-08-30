@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Lista de deseos</ion-title>
+    </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+     <mat-list class="lista-deseos">
+      <h1 class="titulo">Lista de deseos</h1>
+    <mat-list-item class="distancia">
+      <span matListItemTitle class="negro sombra">Final Fantasy XVI</span>
+      <span matListItemLine class="negro">Playstation</span>
+      <span matListItemLine class="negro">Precio: $40.000</span>
+      <img matListItemAvatar src="../../../assets/img/ffxvi.jpeg" alt="" class="avatar">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button mat-fab extended class="boton-compra" color="primary">
+              <mat-icon svgIcon="buy"></mat-icon>
+              Comprar
+            </button>
+          </ion-col>
+          <ion-col>
+            <button mat-fab extended class="boton-eliminar">
+              <mat-icon svgIcon="trash"></mat-icon>
+              Eliminar
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+    <mat-list-item class="distancia">
+      <span matListItemTitle class="negro sombra">Baldurs Gate 3</span>
+      <span matListItemLine class="negro">Steam</span>
+      <span matListItemLine class="negro">Precio: $40.000</span>
+      <img matListItemAvatar src="../../../assets/img/bg3.jpg" alt="" class="avatar">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button mat-fab extended class="boton-compra" color="primary">
+              <mat-icon svgIcon="buy"></mat-icon>
+              Comprar
+            </button>
+          </ion-col>
+          <ion-col>
+            <button mat-fab extended class="boton-eliminar">
+              <mat-icon svgIcon="trash"></mat-icon>
+              Eliminar
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+    <mat-list-item class="distancia">
+      <span matListItemTitle class="negro sombra">Diablo IV</span>
+      <span matListItemLine class="negro">Xbox</span>
+      <span matListItemLine class="negro">Precio: $40.000</span>
+      <img matListItemAvatar src="../../../assets/img/d4.png" alt="" class="avatar">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button mat-fab extended class="boton-compra" color="primary">
+              <mat-icon svgIcon="buy"></mat-icon>
+              Comprar
+            </button>
+          </ion-col>
+          <ion-col>
+            <button mat-fab extended class="boton-eliminar">
+              <mat-icon svgIcon="trash"></mat-icon>
+              Eliminar
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-list-item>
+  </mat-list>
+ 
+  
+
+</ion-content>
+
+
+<app-tabs></app-tabs>
+
+
+
+  <!-- <mat-list class="lista-deseos">
+    <mat-list-item class="distancia">
+      <span matListItemTitle class="negro">Final Fantasy XVI</span>
+      <span matListItemLine class="negro">Playstation</span>
+      <span matListItemLine class="negro">Precio: $40.000</span>
+      <img matListItemAvatar src="../../../assets/img/ffxvi.jpeg" alt="" class="avatar">
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle class="negro">Baldurs Gate 3</span>
+      <span matListItemLine class="negro">Steam</span>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle class="negro">Diablo IV</span>
+      <span matListItemLine class="negro">Xbox</span>
+    </mat-list-item>
+  </mat-list>
+ -->
+  
+
+   <!-- <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Extra large</mat-card-subtitle>
+        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+    </mat-card-content>
+  </mat-card> -->

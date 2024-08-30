@@ -27,6 +27,32 @@ const routes: Routes = [
     path: 'carro',
     loadChildren: () => import('./pages/carro/carro.module').then( m => m.CarroPageModule)
   },
+  {
+    path: 'tabs',
+    loadComponent: () => import('./components/tabs/tabs.component').then((c)=>c.TabsComponent),
+    children:[
+      {
+        path: 'inicio',
+        loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+      },
+      {
+        path: 'carro',
+        loadChildren: () => import('./pages/carro/carro.module').then( m => m.CarroPageModule)
+      },
+      {
+        path: 'perfil',
+        loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+      },
+      {
+        path: 'deseos',
+        loadChildren: () => import('./pages/deseos/deseos.module').then( m => m.DeseosPageModule)
+      }
+    ]
+  },
+  {
+    path: 'deseos',
+    loadChildren: () => import('./pages/deseos/deseos.module').then( m => m.DeseosPageModule)
+  }
 ];
 
 @NgModule({

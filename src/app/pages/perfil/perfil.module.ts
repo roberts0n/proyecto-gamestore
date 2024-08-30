@@ -8,6 +8,10 @@ import { PerfilPageRoutingModule } from './perfil-routing.module';
 
 import { PerfilPage } from './perfil.page';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import { TabsComponent } from 'src/app/components/tabs/tabs.component';
 
 @NgModule({
   imports: [
@@ -15,7 +19,11 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     FormsModule,
     IonicModule,
     PerfilPageRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule,
+    TabsComponent,
   ],
   declarations: [PerfilPage]
 })
