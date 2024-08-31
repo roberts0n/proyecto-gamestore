@@ -63,3 +63,23 @@ ion-item::part(native) {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+.boton-delete{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 83px;
+}
+
+
+@media (max-width:424px)  {
+    .boton-delete{
+        display: flex;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+    }
+    
+   
+    
+    
+}

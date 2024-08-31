@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Descripcion</ion-title>
+    </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+     <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content [fullscreen]="true">
+
+  <mat-card class="descripcion" appearance="outlined">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="marca"></div> -->
+      <mat-icon mat-card-avatar svgIcon="play"></mat-icon>
+      <mat-card-title>Final Fantasy XVI</mat-card-title>
+      <mat-card-subtitle class="texto">Playstation</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/img/ffxvi.jpeg" alt="FFXVI" class="imagen-descripcion">
+    <mat-card-content>
+      <p class="desc">
+        Una fantasía oscura épica donde el destino lo deciden los Eikons y los Dominantes que los controlan.
+         Esta es la historia de Clive Rosfield, un guerrero que jura vengarse del Eikon oscuro Ifrit, 
+         una entidad misteriosa que deja desgracias a su paso.
+      </p>
+      <mat-card-subtitle class="texto">Precio : $40000</mat-card-subtitle>
+    </mat-card-content>
+    <button mat-fab extended class="boton-desc" color="primary">
+      <mat-icon svgIcon="buy"></mat-icon>
+      Comprar
+    </button>
+  </mat-card>
+
+  
+</ion-content>
+
+<app-tabs></app-tabs>

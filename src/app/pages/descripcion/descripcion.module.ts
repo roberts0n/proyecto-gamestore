@@ -4,24 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CarroPageRoutingModule } from './carro-routing.module';
+import { DescripcionPageRoutingModule } from './descripcion-routing.module';
 
-import { CarroPage } from './carro.page';
+import { DescripcionPage } from './descripcion.page';
 import { TabsComponent } from 'src/app/components/tabs/tabs.component';
+import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CarroPageRoutingModule,
+    DescripcionPageRoutingModule,
     TabsComponent,
+    MatCardModule,
     MatButtonModule,
     MatIconModule
   ],
-  declarations: [CarroPage]
+  declarations: [DescripcionPage]
 })
-export class CarroPageModule {}
+export class DescripcionPageModule {}

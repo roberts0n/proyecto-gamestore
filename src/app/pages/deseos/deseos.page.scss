@@ -26,6 +26,12 @@
     
 }
 
+.orden{
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+}
+
 .avatar{
     transform: scale(1);
     object-fit: cover;
