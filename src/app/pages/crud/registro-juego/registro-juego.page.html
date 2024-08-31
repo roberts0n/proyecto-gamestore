@@ -1,0 +1,61 @@
+<ion-header >
+  <ion-toolbar color="barras">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Administrador</ion-title>
+    </div>
+   <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> 
+     <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header> 
+
+
+<ion-content [fullscreen]="true">
+
+  <ion-card class="registro">
+    <ion-card-header>
+      <ion-card-title>Registro de juego</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Nombre  de juego: </ion-label>
+          <ion-input  name="usuario" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select placeholder="Selecciona plataforma" interface="alert" class="opciones">
+            <div slot="label">Plataforma</div>
+            <ion-select-option value="steam">Steam</ion-select-option>
+            <ion-select-option value="playstation">Playstation</ion-select-option>
+            <ion-select-option value="xbox">Xbox</ion-select-option>
+            <ion-select-option value="switch">Switch</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select placeholder="Selecciona categoria">
+            <div slot="label">Categoria</div>
+            <ion-select-option value="accion">Accion</ion-select-option>
+            <ion-select-option value="rpg">RPG</ion-select-option>
+            <ion-select-option value="deportes">Deportes</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Precio: </ion-label>
+          <ion-input  name="usuario" type="number" required></ion-input>
+        </ion-item>
+      </form>
+      <button mat-fab extended class="boton-registro" color="primary">
+        <mat-icon>upload</mat-icon>
+        Registrar juego
+      </button>
+
+    </ion-card-content>
+  </ion-card>
+  
+
+
+</ion-content>

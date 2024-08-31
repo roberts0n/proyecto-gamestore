@@ -46,7 +46,11 @@ const routes: Routes = [
       {
         path: 'deseos',
         loadChildren: () => import('./pages/deseos/deseos.module').then( m => m.DeseosPageModule)
-      }
+      },
+      {
+        path: 'categoria',
+        loadChildren: () => import('./pages/categoria/categoria.module').then( m => m.CategoriaPageModule)
+      },
     ]
   },
   {
@@ -58,9 +62,21 @@ const routes: Routes = [
     loadChildren: () => import('./pages/descripcion/descripcion.module').then( m => m.DescripcionPageModule)
   },
   {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
-  }
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'menu-admin',
+    loadChildren: () => import('./pages/crud/menu-admin/menu-admin.module').then( m => m.MenuAdminPageModule)
+  },
+  {
+    path: 'registro-juego',
+    loadChildren: () => import('./pages/crud/registro-juego/registro-juego.module').then( m => m.RegistroJuegoPageModule)
+  },
+  {
+    path: 'editar-juegos',
+    loadChildren: () => import('./pages/crud/editar-juegos/editar-juegos.module').then( m => m.EditarJuegosPageModule)
+  },
 ];
 
 @NgModule({

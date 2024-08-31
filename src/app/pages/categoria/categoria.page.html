@@ -77,23 +77,4 @@
 </ion-content>
 
 
-<ion-footer>
-  <ion-toolbar>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button [routerLink]="['/inicio']" routerLinkActive="router-link-active"  tab="inicio">
-        <ion-icon name="library"></ion-icon>
-        Inicio
-      </ion-tab-button>
-      <ion-tab-button tab="radio">
-        <ion-icon name="cash-outline"></ion-icon>
-        Carro
-      </ion-tab-button>
-      <ion-tab-button [routerLink]="['/perfil']" routerLinkActive="router-link-active"  tab="home">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        Mi perfil
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-toolbar>
-</ion-footer>
+<app-tabs></app-tabs>

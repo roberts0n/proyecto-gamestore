@@ -2,7 +2,7 @@
   <ion-toolbar color="barras">
     <div class="titulo">
       <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
-      <ion-title>Inicio de sesion</ion-title>
+      <ion-title>Registro</ion-title>
     </div>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
@@ -10,32 +10,32 @@
   </ion-toolbar>
 </ion-header> 
 
-
-<!-- <app-header></app-header> -->
-
 <ion-content [fullscreen]="true">
-
-
-  <ion-card class="login">
+  
+  <ion-card class="registro">
     <ion-card-header>
-      <ion-card-title>Login</ion-card-title>
+      <ion-card-title>Registro</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-    
+      <form>
+        <ion-item>
+          <ion-label position="floating">Correo</ion-label>
+          <ion-input  name="usuario" type="email" required></ion-input>
+        </ion-item>
         <ion-item>
           <ion-label position="floating">Usuario</ion-label>
-          <ion-input [(ngModel)]="usuario" name="usuario" type="text" required></ion-input>
+          <ion-input  name="usuario" type="text" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label  position="floating">Contraseña</ion-label>
-          <ion-input  [(ngModel)]="password" name="password" type="password" required></ion-input>
+          <ion-input  name="password" type="password" required></ion-input>
         </ion-item>
-      <ion-button (click)="verificarLogin()" class="ion-padding" type="submit" >
-        iniciar-sesion
+      </form>
+      <ion-button class="ion-padding" type="submit" >
+        Registrarme
       </ion-button>
 
     </ion-card-content>
   </ion-card>
-</ion-content>
 
-<ion-footer></ion-footer>
+</ion-content>

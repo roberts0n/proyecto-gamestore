@@ -8,6 +8,7 @@ import { CategoriaPageRoutingModule } from './categoria-routing.module';
 
 import { CategoriaPage } from './categoria.page';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { TabsComponent } from 'src/app/components/tabs/tabs.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     FormsModule,
     IonicModule,
     CategoriaPageRoutingModule,
-    HeaderComponent
+    HeaderComponent,
+    TabsComponent
   ],
   declarations: [CategoriaPage]
 })

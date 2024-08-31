@@ -48,5 +48,13 @@ export class AppModule {
       'buy',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/buy.svg')
     );
+    this.matIconRegistry.addSvgIcon(
+      'upload2',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/upload.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'user',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/user.svg')
+    );
   }
 }
