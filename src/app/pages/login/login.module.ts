@@ -8,6 +8,10 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 import { HeaderComponent } from 'src/app/components/header/header.component';
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   imports: [
@@ -17,7 +21,9 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
     LoginPageRoutingModule,
     HeaderComponent,
     ReactiveFormsModule,
-    LoginPageRoutingModule    
+    LoginPageRoutingModule,
+    MatButtonModule,
+    MatIconModule
   ],
   declarations: [LoginPage
   ]

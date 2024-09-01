@@ -30,9 +30,14 @@
           <ion-label  position="floating">Contraseña</ion-label>
           <ion-input  [(ngModel)]="password" name="password" type="password" required></ion-input>
         </ion-item>
-      <ion-button (click)="verificarLogin()" class="ion-padding" type="submit" >
-        iniciar-sesion
-      </ion-button>
+        <br>
+        <a [routerLink]="['/registro']" routerLinkActive="router-link-active" class="olvidar">Olvidaste tu contraseña? Presiona aqui</a>
+        <br>
+      <button (click)="verificarLogin()" mat-fab extended class="boton-login ion-padding" color="primary">
+        <mat-icon >login</mat-icon>
+        Iniciar sesion
+      </button>
+      <a [routerLink]="['/registro']" routerLinkActive="router-link-active" class="registrar">No tienes una cuenta? Registrate aca</a>
 
     </ion-card-content>
   </ion-card>

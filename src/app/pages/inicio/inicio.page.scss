@@ -83,14 +83,14 @@ ion-card-content {
 
 }
 
-.movimiento{
-    transition: 0.1 ease;
+ .movimiento{
+    transition: 0.5 ease;
 }
 
 .movimiento:hover{
     transform: scale(110%);
     transition: 0.3s ease;
-}
+} 
 
 .boton{
     display: flex;

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +21,9 @@ export class LoginPage implements OnInit {
 
   
 
-  constructor(private router:Router,private alertcontroller: AlertController) { }
+  constructor(private router:Router,private alertcontroller: AlertController,private toastController: ToastController,private menuController: MenuController) {
+    this.menuController.enable(false,'menu');
+   }
   ngOnInit() {
   }
 
@@ -34,19 +36,37 @@ export class LoginPage implements OnInit {
     
     await alerta.present();
   }
+  async alertaLogin(mensaje:string){
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2500,
+      position: 'top',
+    });
+
+    await toast.present();
+  }
 
   verificarLogin(){
+
+   /*  console.log(`Usuario ingresado: ${this.usuario}`);
+    console.log(`Contraseña ingresada: ${this.password}`);
+    console.log(`Usuario admin: ${this.usuarioAdmin}`);
+    console.log(`Contraseña admin: ${this.passwordAdmin}`);
+   */
 
     if (this.usuario.trim()==="" || this.password.trim()===""){
        this.alertaError('No puedes dejar campos vacios');
        return;
    };
 
-   if (this.usuario===this.usuarioAdmin || this.password===this.passwordAdmin ){
+   if (this.usuario===this.usuarioAdmin && this.password===this.passwordAdmin ){
     this.router.navigate(['/inicio']);
+    this.alertaLogin('Logeo exitoso! disfruta de nuestra tienda')
+    this.menuController.enable(true,'menu');
    }
    else{
       this.alertaError('Los datos no coinciden');
+      return;
    }
 
   };

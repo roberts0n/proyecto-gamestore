@@ -4,6 +4,9 @@
       <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
       <ion-title>Registro</ion-title>
     </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -20,20 +23,21 @@
       <form>
         <ion-item>
           <ion-label position="floating">Correo</ion-label>
-          <ion-input  name="usuario" type="email" required></ion-input>
+          <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Usuario</ion-label>
-          <ion-input  name="usuario" type="text" required></ion-input>
+          <ion-input [(ngModel)]="usuario" name="usuario" type="text" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label  position="floating">Contraseña</ion-label>
-          <ion-input  name="password" type="password" required></ion-input>
+          <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
         </ion-item>
       </form>
-      <ion-button class="ion-padding" type="submit" >
-        Registrarme
-      </ion-button>
+      <button (click)="registrar()" mat-fab extended class="boton-login ion-padding" type="submit" color="primary">
+        <mat-icon >login</mat-icon>
+        Registrarse
+      </button>
 
     </ion-card-content>
   </ion-card>

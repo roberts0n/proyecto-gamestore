@@ -25,6 +25,13 @@
 
 }
 
+ion-card.carta img{
+    border: 2px solid #000000; 
+}
+.plat{
+    margin-left: 5px;
+}
+
 
 .carta{
     color: #000000;
@@ -33,10 +40,32 @@
     background-color: rgba(138, 235, 218, 0.5);
 }
 
-.boton{
+/* .boton{
     display: flex;
     justify-content: center; 
     max-width: 150px;  
     margin: 0 auto;
     margin-bottom: 15px;
+} */
+
+.boton{
+    display: flex;
+    justify-content: center; 
+    max-width: 150px;   
+    margin: 0 auto;
+    margin-bottom: 15px;
+    min-width: 150px;
+    background-color: rgba(18, 141, 79, 0.705);
+    color: white;
+}
+
+.boton2{
+    display: flex;
+    justify-content: center; 
+    max-width: 250px;   
+    margin: 0 auto;
+    margin-bottom: 15px;
+    min-width: 250px;
+    background-color: rgba(170, 161, 34, 0.692);
+    color: rgb(255, 255, 255);
 }

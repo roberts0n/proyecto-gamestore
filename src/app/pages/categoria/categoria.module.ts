@@ -9,6 +9,9 @@ import { CategoriaPageRoutingModule } from './categoria-routing.module';
 import { CategoriaPage } from './categoria.page';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { TabsComponent } from 'src/app/components/tabs/tabs.component';
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -17,7 +20,10 @@ import { TabsComponent } from 'src/app/components/tabs/tabs.component';
     IonicModule,
     CategoriaPageRoutingModule,
     HeaderComponent,
-    TabsComponent
+    TabsComponent,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule
   ],
   declarations: [CategoriaPage]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriaPage implements OnInit {
 
-  constructor() { }
+  titulo : string = "";
+  filtro : string = "";
+
+  constructor(private router: Router, private activedroute: ActivatedRoute) {
+    
+    this.activedroute.queryParams.subscribe(param =>{
+
+      if(this.router.getCurrentNavigation()?.extras.state){
+
+        this.titulo = this.router.getCurrentNavigation()?.extras?.state?.['titulo'];
+        this.filtro = this.router.getCurrentNavigation()?.extras?.state?.['filtro'];
+      }
+    })
+
+
+
+   }
 
   ngOnInit() {
   }
