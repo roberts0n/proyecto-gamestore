@@ -18,13 +18,13 @@
 
   <ion-card class="registro">
     <ion-card-header>
-      <ion-card-title>Registro de juego</ion-card-title>
+      <ion-card-title>Editar juego</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <form>
         <ion-item>
           <ion-label position="floating">Nombre  de juego: </ion-label>
-          <ion-input  name="nombre-juego" type="text" required></ion-input>
+          <ion-input  name="nombre-juego" type="text" required value="Final Fantasy XVI"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Imagen de juego </ion-label>
@@ -32,7 +32,7 @@
           <ion-button class="subir2" color="barras">Seleccionar imagen</ion-button>
         </ion-item>
         <ion-item>
-          <ion-select placeholder="Selecciona plataforma" interface="alert" class="opciones">
+          <ion-select placeholder="Selecciona plataforma" interface="alert" class="opciones" value="steam">
             <div slot="label">Plataforma</div>
             <ion-select-option value="steam">Steam</ion-select-option>
             <ion-select-option value="playstation">Playstation</ion-select-option>
@@ -41,7 +41,7 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-select placeholder="Selecciona categoria">
+          <ion-select placeholder="Selecciona categoria" value="rpg">
             <div slot="label">Categoria</div>
             <ion-select-option value="accion">Accion</ion-select-option>
             <ion-select-option value="rpg">RPG</ion-select-option>
@@ -49,13 +49,13 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Precio: </ion-label>
-          <ion-input  name="precio" type="number" required></ion-input>
+          <ion-label  position="floating">Precio: </ion-label>
+          <ion-input  name="precio" type="number" required value="40000"></ion-input>
         </ion-item>
       </form>
       <button mat-fab extended class="boton-registro" color="primary">
         <mat-icon>upload</mat-icon>
-        Registrar juego
+        Actualizar juego
       </button>
 
     </ion-card-content>

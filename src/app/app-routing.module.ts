@@ -77,6 +77,18 @@ const routes: Routes = [
     path: 'editar-juegos',
     loadChildren: () => import('./pages/crud/editar-juegos/editar-juegos.module').then( m => m.EditarJuegosPageModule)
   },
+  {
+    path: 'editar',
+    loadChildren: () => import('./pages/crud/editar/editar.module').then( m => m.EditarPageModule)
+  },
+  {
+    path: 'editar-cuentas',
+    loadChildren: () => import('./pages/crud/editar-cuentas/editar-cuentas.module').then( m => m.EditarCuentasPageModule)
+  },
+  {
+    path: 'editar-usuario',
+    loadChildren: () => import('./pages/crud/editar-usuario/editar-usuario.module').then( m => m.EditarUsuarioPageModule)
+  },
 ];
 
 @NgModule({

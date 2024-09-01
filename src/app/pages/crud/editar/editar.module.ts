@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditarJuegosPageRoutingModule } from './editar-juegos-routing.module';
+import { EditarPageRoutingModule } from './editar-routing.module';
 
-import { EditarJuegosPage } from './editar-juegos.page';
+import { EditarPage } from './editar.page';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,10 +17,11 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     IonicModule,
-    EditarJuegosPageRoutingModule,
-    MatIconModule,
-    MatButtonModule
+    EditarPageRoutingModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatIconModule
   ],
-  declarations: [EditarJuegosPage]
+  declarations: [EditarPage]
 })
-export class EditarJuegosPageModule {}
+export class EditarPageModule {}

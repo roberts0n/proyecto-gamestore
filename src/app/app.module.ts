@@ -12,10 +12,11 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { provideHttpClient } from '@angular/common/http';
 import { TabsComponent } from './components/tabs/tabs.component';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HeaderComponent,TabsComponent],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(),provideHttpClient() ],
+  providers: [{ provide:  RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(),provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {

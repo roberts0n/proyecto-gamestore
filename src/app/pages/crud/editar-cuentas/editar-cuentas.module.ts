@@ -4,23 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditarJuegosPageRoutingModule } from './editar-juegos-routing.module';
+import { EditarCuentasPageRoutingModule } from './editar-cuentas-routing.module';
 
-import { EditarJuegosPage } from './editar-juegos.page';
+import { EditarCuentasPage } from './editar-cuentas.page';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditarJuegosPageRoutingModule,
+    EditarCuentasPageRoutingModule,
     MatIconModule,
     MatButtonModule
   ],
-  declarations: [EditarJuegosPage]
+  declarations: [EditarCuentasPage]
 })
-export class EditarJuegosPageModule {}
+export class EditarCuentasPageModule {}
