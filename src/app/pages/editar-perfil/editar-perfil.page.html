@@ -1,13 +1,52 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>editar-perfil</ion-title>
+<ion-header>
+  <ion-toolbar color="barras">
+    <div class="titulo">
+      <ion-img src="../../../assets/img/logo.png" alt="" style="width: 30px;" class="logo"></ion-img>
+      <ion-title>Perfil</ion-title>
+    </div>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">editar-perfil</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <ion-card class="registro">
+    <ion-card-header>
+      <ion-card-title>Editar usuario</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form>
+        <ion-item>
+          <ion-label position="floating">Usuario: </ion-label>
+          <ion-input  name="usuario" type="text" required value="admin"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="floating">Contraseña:  </ion-label>
+          <ion-input  name="password" type="password" required value="hola12345"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label  position="floating">Edad:</ion-label>
+          <ion-input  name="eda" type="number" required value="20"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Imagen de juego </ion-label>
+          <input name="imagen" type="file" required class="subir-imagen">
+          <ion-button class="subir2" color="barras">Seleccionar imagen</ion-button>
+        </ion-item>
+      </form>
+      <button mat-fab extended class="boton-registro" color="primary">
+        <mat-icon>upload</mat-icon>
+        Actualizar datos
+      </button>
+
+    </ion-card-content>
+  </ion-card>
+  
+
+
 </ion-content>

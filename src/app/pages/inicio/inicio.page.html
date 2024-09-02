@@ -89,7 +89,7 @@
           </ion-card-header>
           <h4 class="ion-margin">Playstation<mat-icon svgIcon="play" class="plat"></mat-icon></h4>
           <h5 class="ion-margin">Precio : $40.000</h5>
-          <button mat-fab extended class="boton" color="primary" [routerLink]="['/descripcion']" routerLinkActive="router-link-active" >
+          <button mat-fab extended class="boton" color="primary" (click)="descripcionffxvi()" >
             <mat-icon svgIcon="buy"></mat-icon>
             Comprar
           </button>
@@ -107,7 +107,7 @@
           </ion-card-header>
           <h4 class="ion-margin">Steam<mat-icon svgIcon="steam" class="plat"></mat-icon></h4>
           <h5 class="ion-margin">Precio : $40.000</h5>
-          <button mat-fab extended class="boton" color="primary">
+          <button mat-fab extended class="boton" color="primary" (click)="descripcionbg3()">
             <mat-icon svgIcon="buy"></mat-icon>
             Comprar
           </button>
@@ -125,7 +125,7 @@
           </ion-card-header>
           <h4 class="ion-margin">Xbox<mat-icon svgIcon="xbox" class="plat"></mat-icon></h4>
           <h5 class="ion-margin">Precio : $40.000</h5>
-          <button mat-fab extended class="boton" color="primary">
+          <button mat-fab extended class="boton" color="primary" (click)="descripciond4()">
             <mat-icon svgIcon="buy"></mat-icon>
             Comprar
           </button>
