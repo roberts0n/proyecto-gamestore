@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-descripcion',
@@ -15,7 +16,7 @@ export class DescripcionPage implements OnInit {
   precio : string = "";
   imagen : string = "";
 
-  constructor(private router: Router, private activedroute: ActivatedRoute) { 
+  constructor(private router: Router, private activedroute: ActivatedRoute,private alertcontroller: AlertController,private toastController: ToastController) { 
     this.activedroute.queryParams.subscribe(param =>{
 
       if(this.router.getCurrentNavigation()?.extras.state){
@@ -32,5 +33,31 @@ export class DescripcionPage implements OnInit {
 
   ngOnInit() {
   }
+
+
+  async alertaBoton(mensaje:string){
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2500,
+      position: 'top',
+    });
+
+    await toast.present();
+  }
+
+  botonDeseo(){
+
+    this.alertaBoton('Juego añadido a la lista de deseos!')
+
+  }
+
+  botonCompra(){
+
+    this.alertaBoton('Juego añadido al carro!')
+
+  }
+
+
+  
 
 }

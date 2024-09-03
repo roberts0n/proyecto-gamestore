@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras,Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { AlertController, MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-inicio',
@@ -9,7 +9,7 @@ import { MenuController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  constructor(private router: Router,private menuController: MenuController) {  
+  constructor(private router: Router,private menuController: MenuController,private alertcontroller: AlertController,private toastController: ToastController) {  
     this.menuController.enable(true, 'menu');
    }
 
@@ -115,6 +115,22 @@ export class InicioPage implements OnInit {
       }
     }
     this.router.navigate(['/categoria'],navigationextras)
+  };
+
+  async alertaBoton(mensaje:string){
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2500,
+      position: 'top',
+    });
+
+    await toast.present();
+  };
+
+  botonDeseo(){
+
+    this.alertaBoton('Juego añadido a la lista de deseos!')
+
   };
 
   ngOnInit() {

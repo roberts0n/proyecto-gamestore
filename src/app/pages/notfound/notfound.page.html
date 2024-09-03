@@ -11,5 +11,19 @@
 </ion-header> 
 <ion-content [fullscreen]="true">
   
-  <h1 class="ion-text-center">La pagina que intentas visitar no existe</h1>
+<ion-grid>
+  <ion-row>
+
+    <div class="menu">
+      <ion-col size="6">
+      <h1>La pagina que intentas visitar no existe</h1>
+      </ion-col>
+      <ion-col size="6">
+        <button mat-fab extended class="boton-vuelta" color="primary" [routerLink]="['/inicio']" routerLinkActive="router-link-active" >
+          Volver al inicio
+        </button>
+      </ion-col>
+    </div>
+  </ion-row>
+</ion-grid>
 </ion-content>

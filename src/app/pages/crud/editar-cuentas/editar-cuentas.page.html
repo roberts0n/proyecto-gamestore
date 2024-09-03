@@ -32,7 +32,7 @@
               <mat-icon>edit</mat-icon>
               Editar
             </button>
-            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary">
+            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary" (click)="botonEliminar()">
               <mat-icon svgIcon="trash"></mat-icon>
               Eliminar
             </button>
@@ -46,11 +46,11 @@
             <h5 class="ion-text-center" style="color: black;">Cuenta de cliente</h5>
           </ion-card-header>
           <div class="botones ion-margin">
-            <button mat-fab extended class="boton">
+            <button mat-fab extended class="boton"  [routerLink]="['/editar-usuario']" routerLinkActive="router-link-active">
               <mat-icon>edit</mat-icon>
               Editar
             </button>
-            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary">
+            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary" (click)="botonEliminar()">
               <mat-icon svgIcon="trash"></mat-icon>
               Eliminar
             </button>
@@ -64,11 +64,11 @@
             <h5 class="ion-text-center" style="color: black;">Cuenta de cliente</h5>
           </ion-card-header>
           <div class="botones ion-margin">
-            <button mat-fab extended class="boton">
+            <button mat-fab extended class="boton"  [routerLink]="['/editar-usuario']" routerLinkActive="router-link-active">
               <mat-icon>edit</mat-icon>
               Editar
             </button>
-            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary">
+            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary" (click)="botonEliminar()"> 
               <mat-icon svgIcon="trash"></mat-icon>
               Eliminar
             </button>

@@ -23,23 +23,23 @@
       <form>
         <ion-item>
           <ion-label position="floating">Usuario: </ion-label>
-          <ion-input  name="usuario" type="text" required value="admin"></ion-input>
+          <ion-input  [(ngModel)]="usuario" name="usuario" type="text" required value="admin"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label  position="floating">Contraseña:  </ion-label>
-          <ion-input  name="password" type="password" required value="hola12345"></ion-input>
+          <ion-input  [(ngModel)]="password" name="password" type="password" required value="hola12345"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label  position="floating">Edad:</ion-label>
-          <ion-input  name="eda" type="number" required value="20"></ion-input>
+          <ion-input [(ngModel)]="edad" name="eda" type="number" required value="20"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Imagen de juego </ion-label>
+          <ion-label position="floating">Imagen de perfil</ion-label>
           <input name="imagen" type="file" required class="subir-imagen">
           <ion-button class="subir2" color="barras">Seleccionar imagen</ion-button>
         </ion-item>
       </form>
-      <button mat-fab extended class="boton-registro" color="primary">
+      <button mat-fab extended class="boton-registro" color="primary" (click)="editarUsuario()">
         <mat-icon>upload</mat-icon>
         Actualizar datos
       </button>

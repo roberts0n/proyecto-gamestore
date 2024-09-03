@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NotfoundPageRoutingModule } from './notfound-routing.module';
+import { CambioClavePageRoutingModule } from './cambio-clave-routing.module';
 
-import { NotfoundPage } from './notfound.page';
-import {MatButtonModule} from '@angular/material/button';
+import { CambioClavePage } from './cambio-clave.page';
+import { MatButtonModule } from '@angular/material/button'; 
+import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -16,10 +17,10 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     IonicModule,
-    NotfoundPageRoutingModule,
+    CambioClavePageRoutingModule,
     MatButtonModule,
     MatIconModule
   ],
-  declarations: [NotfoundPage]
+  declarations: [CambioClavePage]
 })
-export class NotfoundPageModule {}
+export class CambioClavePageModule {}

@@ -30,11 +30,11 @@
       </p>
       <mat-card-subtitle class="texto">Precio : ${{precio}}</mat-card-subtitle>
     </mat-card-content>
-    <button mat-fab extended class="boton-desc" color="primary">
+    <button mat-fab extended class="boton-desc" color="primary" (click)="botonCompra()">
       <mat-icon svgIcon="buy"></mat-icon>
       Comprar
     </button>
-    <button mat-fab extended class="boton-desc2">
+    <button mat-fab extended class="boton-desc2" (click)="botonDeseo()">
       <mat-icon>star</mat-icon>
       Añadir a la lista de deseos
     </button>
