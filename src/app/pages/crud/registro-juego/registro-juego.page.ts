@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-registro-juego',
@@ -9,9 +10,28 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegistroJuegoPage implements OnInit {
 
-  constructor(private toastController : ToastController,private router:Router) { }
+  nombreJuego : string = "";
+  categoria : string = "";
+  plataforma : string = "";
+  precio! : number ;
+
+  
+
+  constructor(private toastController : ToastController,private router:Router,private alertcontroller: AlertController) { }
 
   ngOnInit() {
+  }
+
+  registroJuego(){
+    if(this.nombreJuego==="" || this.categoria==="" || this.plataforma==="" || this.precio === undefined || this.precio === null){
+      this.alertaError('No puedes dejar campos vacios')
+      return;
+    }
+
+    if(this.precio < 0){
+      this.alertaError('El precio no puede ser negativo')
+      return;
+    }
   }
 
   async alertaBoton(mensaje:string){
@@ -22,6 +42,16 @@ export class RegistroJuegoPage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  async alertaError(mensaje:string){
+    const alerta = await this.alertcontroller.create({
+      header: 'Error al registrar',
+      message: mensaje,
+      buttons: ['Aceptar']
+    });
+    
+    await alerta.present();
   }
 
   botonRegistro(){

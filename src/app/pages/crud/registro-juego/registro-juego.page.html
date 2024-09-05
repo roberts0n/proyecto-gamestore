@@ -24,7 +24,7 @@
       <form>
         <ion-item>
           <ion-label position="floating">Nombre  de juego: </ion-label>
-          <ion-input  name="nombre-juego" type="text" required></ion-input>
+          <ion-input [(ngModel)]="nombreJuego" name="nombreJuego" type="text" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Imagen de juego </ion-label>
@@ -32,7 +32,7 @@
           <ion-button class="subir2" color="barras">Seleccionar imagen</ion-button>
         </ion-item>
         <ion-item>
-          <ion-select placeholder="Selecciona plataforma" interface="alert" class="opciones">
+          <ion-select  [(ngModel)]="plataforma" name="plataforma" placeholder="Selecciona plataforma" interface="alert" class="opciones">
             <div slot="label">Plataforma</div>
             <ion-select-option value="steam">Steam</ion-select-option>
             <ion-select-option value="playstation">Playstation</ion-select-option>
@@ -41,7 +41,7 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-select placeholder="Selecciona categoria">
+          <ion-select [(ngModel)]="categoria" name="categoria" placeholder="Selecciona categoria">
             <div slot="label">Categoria</div>
             <ion-select-option value="accion">Accion</ion-select-option>
             <ion-select-option value="rpg">RPG</ion-select-option>
@@ -50,10 +50,10 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating">Precio: </ion-label>
-          <ion-input  name="precio" type="number" required></ion-input>
+          <ion-input [(ngModel)]="precio" name="precio" type="number" required></ion-input>
         </ion-item>
       </form>
-      <button mat-fab extended class="boton-registro" color="primary" (click)="botonRegistro()">
+      <button mat-fab extended class="boton-registro" color="primary" (click)="registroJuego()">
         <mat-icon>upload</mat-icon>
         Registrar juego
       </button>
