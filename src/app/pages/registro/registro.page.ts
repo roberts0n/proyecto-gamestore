@@ -12,6 +12,7 @@ export class RegistroPage implements OnInit {
   email: string ="";
   usuario: string ="";
   password: string ="";
+  password2: string ="";
 
   constructor(private router:Router,private alertcontroller: AlertController,private toastController: ToastController,private menuController: MenuController) {
     this.menuController.enable(false,'menu'); 
@@ -57,8 +58,18 @@ export class RegistroPage implements OnInit {
       return;
     }
 
-     this.router.navigate(['/login']);
-     this.alertaRegistro('Registro exitoso!')
+    const formatoPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).*$/;
+    if(!formatoPassword.test(this.password)){
+      this.alertaError('La contraseña debe contener como minimo una mayuscula,un numero y un simbolo.')
+      return;
+    }
+
+    if(this.password===this.password2){
+      this.router.navigate(['/login']);
+      this.alertaRegistro('Registro exitoso!')
+    }else{
+      this.alertaError('Las claves no coinciden')
+    }
 
 
 

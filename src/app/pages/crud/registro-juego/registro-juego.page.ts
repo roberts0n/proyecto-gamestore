@@ -32,6 +32,11 @@ export class RegistroJuegoPage implements OnInit {
       this.alertaError('El precio no puede ser negativo')
       return;
     }
+
+    this.alertaBoton('Juego registrado con exito!')
+    this.router.navigate(['/menu-admin']);
+
+
   }
 
   async alertaBoton(mensaje:string){

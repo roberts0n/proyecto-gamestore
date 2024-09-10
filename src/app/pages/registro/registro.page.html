@@ -33,6 +33,10 @@
           <ion-label  position="floating">Contraseña</ion-label>
           <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
         </ion-item>
+        <ion-item>
+          <ion-label  position="floating">Contraseña nuevamente:</ion-label>
+          <ion-input [(ngModel)]="password2" name="password2" type="password" required></ion-input>
+        </ion-item>
       </form>
       <button (click)="registrar()" mat-fab extended class="boton-login ion-padding" type="submit" color="primary">
         <mat-icon >login</mat-icon>
