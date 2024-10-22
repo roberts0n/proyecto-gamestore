@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { AlertserviceService } from 'src/app/services/alertservice.service';
+import { BdserviceService } from 'src/app/services/bdservice.service';
 
 @Component({
   selector: 'app-recuperar-clave',
@@ -12,58 +14,40 @@ export class RecuperarClavePage implements OnInit {
   email: string = "";
   emailAdmin : string = "admin@gmail.com";
 
-  constructor(private router:Router,private alertcontroller: AlertController,private toastController: ToastController) { }
+  constructor(private router:Router,private bd : BdserviceService,private alerta : AlertserviceService) { }
 
   ngOnInit() {
   }
 
-  async alertaError(mensaje:string){
-    const alerta = await this.alertcontroller.create({
-      header: 'Error en el correo',
-      message: mensaje,
-      buttons: ['Aceptar']
-    });
-
-    
-    
-    await alerta.present();
-  };
-
-  async alertaChequeo(mensaje:string){
-    const alerta = await this.alertcontroller.create({
-      header: 'Correo aceptado!',
-      message: mensaje,
-      buttons: ['Aceptar']
-    });
-
-    
-    
-    await alerta.present();
-  };
-
-
-
   comprobarEmail(){
   
   if( !this.email){
-    this.alertaError('No puedes dejar campos vacios')
+    this.alerta.presentToast('No puedes dejar campos vacios!')
     return;
   };
 
   const formatoEmail =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if(!formatoEmail.test(this.email)){
-    this.alertaError('Correo invalido.')
+    this.alerta.presentToast('Correo invalido!')
     return;
   };
 
-  if(this.email===this.emailAdmin){
-    this.alertaChequeo('Te hemos enviado un codigo a tu correo.')
-    this.router.navigate(['/cambio-clave']);
 
-  }else{
-    this.alertaError('Correo no registrado')
-    return;
-  }
+  this.bd.checkCorreo(this.email)
+  .then((resultado)=>{
+    if(resultado.existe){
+      this.alerta.presentAlert('Cambio de contraseña','Se ha enviado un codigo a tu correo!')
+      this.router.navigate(['cambio-clave'])
+    }
+    else{
+      this.alerta.presentToast('Correo no existe!')
+    }
+  }).catch((error) => {
+        console.error(error);
+      });
+
+  
+
 
   };
 

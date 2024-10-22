@@ -104,6 +104,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cambio-clave/cambio-clave.module').then( m => m.CambioClavePageModule)
   },
   {
+    path: 'perfil-contrasena',
+    loadChildren: () => import('./pages/perfil-contrasena/perfil-contrasena.module').then( m => m.PerfilContrasenaPageModule)
+  },
+  {
+    path: 'plataforma',
+    loadChildren: () => import('./pages/plataforma/plataforma.module').then( m => m.PlataformaPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   },

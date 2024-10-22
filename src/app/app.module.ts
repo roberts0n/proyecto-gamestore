@@ -9,20 +9,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatIconRegistry } from '@angular/material/icon';
-import { provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { SQLite } from '@awesome-cordova-plugins/sqlite/ngx';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @NgModule({
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HeaderComponent,TabsComponent],
-  providers: [{ provide:  RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(),provideHttpClient()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HeaderComponent,TabsComponent,HttpClientModule],
+  providers: [{ provide:  RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync(),provideHttpClient(),NativeStorage,SQLite],
   bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(private matIconRegistry: MatIconRegistry,private domSanitizer:DomSanitizer){
     this.matIconRegistry.addSvgIcon(
-      'steam',
+      'Steam',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/steam.svg')
     );
     this.matIconRegistry.addSvgIcon(
@@ -30,15 +34,15 @@ export class AppModule {
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/profile.svg')
     );
     this.matIconRegistry.addSvgIcon(
-      'xbox',
+      'Xbox',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/xbox.svg')
     );
     this.matIconRegistry.addSvgIcon(
-      'switch',
+      'Switch',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/nintendo-switch.svg')
     );
     this.matIconRegistry.addSvgIcon(
-      'play',
+      'Playstation',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/playstation.svg')
     );
     this.matIconRegistry.addSvgIcon(
@@ -56,6 +60,10 @@ export class AppModule {
     this.matIconRegistry.addSvgIcon(
       'user',
       this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/user.svg')
+    );
+    this.matIconRegistry.addSvgIcon(
+      'aventura',
+      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/aventura.svg')
     );
   }
 }

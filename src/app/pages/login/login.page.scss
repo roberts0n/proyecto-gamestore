@@ -20,6 +20,12 @@
     
 }
 
+.logo-grande{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 30px;
+}
+
 .div{
     border: 1px solid black;
     background: rgba(138, 235, 218, 0.6);
@@ -37,7 +43,7 @@ ion-item::part(native) {
  }
 
  .boton-login{
-    color: white;
+   color: white;
  }
 
  .registrar{
@@ -47,6 +53,20 @@ ion-item::part(native) {
 
  }
 
+ .boton-registrar{
+    color: white;
+    background-color: rgba(170, 161, 34, 0.692);
+    margin-left: 15px;
+ }
+
+ .botones-login{
+    display: flex;
+    justify-content: center;
+  }
+
+ .subtitulos{
+    color: black;
+ }
  a{
     color: rgb(255, 255, 255);
     text-decoration: none;

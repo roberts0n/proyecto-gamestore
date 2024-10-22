@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras,Router } from '@angular/router';
 import { AlertController, MenuController, ToastController } from '@ionic/angular';
+import { ApiserviceService } from 'src/app/services/apiservice.service';
+import { BdserviceService } from 'src/app/services/bdservice.service';
 
 @Component({
   selector: 'app-inicio',
@@ -9,104 +11,60 @@ import { AlertController, MenuController, ToastController } from '@ionic/angular
 })
 export class InicioPage implements OnInit {
 
-  constructor(private router: Router,private menuController: MenuController,private alertcontroller: AlertController,private toastController: ToastController) {  
+    noticias : any[] = [];
+    stores: any[] = [];
+    error: string | null = null;
+    juegosRecientes: any[] = [];
+    juegosProximos: any[] = [];
+    searchTerm: string = '';
+    busquedaRealizada: boolean = false;
+
+    arregloJuegos : any = [{
+      idJuego : '',
+      nombre_juego : '',
+      precio : '',
+      nombre_plataforma : '',
+      nombre_categoria : '',
+      descripcion : '',
+      imagen : ''
+
+    }]
+    juegosFiltrados : any = [{
+      idJuego : '',
+      nombre_juego : '',
+      precio : '',
+      nombre_plataforma : '',
+      nombre_categoria : '',
+      descripcion : '',
+      imagen : ''
+
+    }]
+    arregloJuegosRandom : any = [{
+      idJuego : '',
+      nombre_juego : '',
+      precio : '',
+      nombre_plataforma : '',
+      nombre_categoria : '',
+      descripcion : '',
+      imagen : ''
+
+    }]
+
+  constructor(private api : ApiserviceService,private router: Router,private menuController: MenuController,private bd : BdserviceService) {  
     this.menuController.enable(true, 'menu');
    }
 
-   descripcionffxvi(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        nombre : 'Final Fantasy XVI',
-        plataforma : 'Playstation',
-        icono : 'play',
-        descripcion : ' Una fantasía oscura épica donde el destino lo deciden los Eikons y los Dominantes que los controlan. Esta es la historia de Clive Rosfield, un guerrero que jura vengarse del Eikon oscuro Ifrit, una entidad misteriosa que deja desgracias a su paso.',
-        precio : '40000',
-        imagen : '../../../assets/img/ffxvi.jpeg'
-      }
-    }
-    this.router.navigate(['/descripcion'],navigationextras);
-   }
-   descripcionbg3(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        nombre : 'Baldurs Gate 3',
-        plataforma : 'Steam',
-        icono : 'steam',
-        descripcion : 'Reúne a tu grupo y regresa a los Reinos Olvidados en una historia de compañerismo, traición, sacrificio, supervivencia y la atracción de un poder absoluto.Misteriosas aptitudes empiezan a surgir en tu interior por obra de un parásito de los azotamentes que te implantaron en el cerebro. Resístete y vuelve a la oscuridad contra sí misma o abraza la corrupción y conviértete en el mal supremo.',
-        precio : '40000',
-        imagen : '../../../assets/img/bg3.jpg'
-      }
-    }
-    this.router.navigate(['/descripcion'],navigationextras);
-   }
-   descripciond4(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        nombre : 'Diablo IV',
-        plataforma : 'Xbox',
-        icono : 'xbox',
-        descripcion : 'Descubre la franquicia aclamada por la crítica que definió el género de RPG de acción. Mientras la batalla entre los Cielos Superiores y los Infiernos Ardientes continúa, el Odio devora a Santuario mientras el mal se extiende y una nueva oleada de cultistas y adoradores se alza para darle la bienvenida a Lilith. Solo unos pocos valientes se atreven a enfrentarse a esta amenaza y acercar la luz a la abrumadora oscuridad.',
-        precio : '40000',
-        imagen : '../../../assets/img/d4.png'
-      }
-    }
-    this.router.navigate(['/descripcion'],navigationextras);
-   }
 
-  filtroPaginaAccion(){
+
+
+   filtrarJuegos(id : number){
     let navigationextras : NavigationExtras = {
       state:{
-        titulo : 'Categoria: ',
-        filtro : 'Accion'
+        id : id
       }
     }
     this.router.navigate(['/categoria'],navigationextras);
-  };
-  filtroPaginaRpg(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        titulo : 'Categoria: ',
-        filtro : 'RPG'
-      }
-    }
-    this.router.navigate(['/categoria'],navigationextras)
-  };
-  filtroPaginaDeportes(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        titulo : 'Categoria: ',
-        filtro : 'Deportes'
-      }
-    }
-    this.router.navigate(['/categoria'],navigationextras)
-  };
-  filtroPaginaSteam(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        titulo : 'Plataforma: ',
-        filtro : 'Steam'
-      }
-    }
-    this.router.navigate(['/categoria'],navigationextras)
-  };
-  filtroPaginaSwitch(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        titulo : 'Plataforma: ',
-        filtro : 'Switch'
-      }
-    }
-    this.router.navigate(['/categoria'],navigationextras)
-  };
-  filtroPaginaXbox(){
-    let navigationextras : NavigationExtras = {
-      state:{
-        titulo : 'Plataforma: ',
-        filtro : 'Xbox'
-      }
-    }
-    this.router.navigate(['/categoria'],navigationextras)
-  };
+   }
   filtroPaginaPlaystation(){
     let navigationextras : NavigationExtras = {
       state:{
@@ -117,23 +75,79 @@ export class InicioPage implements OnInit {
     this.router.navigate(['/categoria'],navigationextras)
   };
 
-  async alertaBoton(mensaje:string){
-    const toast = await this.toastController.create({
-      message: mensaje,
-      duration: 2500,
-      position: 'top',
-    });
+  irCategoria(id : number,titulo : string){
+    let navigationextras : NavigationExtras = {
+      state:{
+        id : id,
+        titulo : titulo
+      }
+    }
+    this.router.navigate(['/categoria'],navigationextras)
+  }
 
-    await toast.present();
-  };
+  irPlataforma(id : number,titulo : string){
+    let navigationextras : NavigationExtras = {
+      state:{
+        id : id,
+        titulo : titulo
+      }
+    }
+    this.router.navigate(['/plataforma'],navigationextras)
+  }
 
-  botonDeseo(){
+  verDescripcion(id : any){
 
-    this.alertaBoton('Juego añadido a la lista de deseos!')
+    let navigationextras : NavigationExtras = {
+      state:{
+        id : id
+      }
+    }
+    this.router.navigate(['/descripcion'],navigationextras)
+  }
 
-  };
-
+  onSearch(event: any) {
+    const searchTerm = event.target.value.toLowerCase().trim();
+  
+    // Mostrar el término de búsqueda en la consola
+    console.log('searchTerm:', searchTerm);
+  
+    // Si el término de búsqueda está vacío, no muestra nada
+    if (searchTerm === '') {
+      this.juegosFiltrados = [];
+      this.busquedaRealizada = false;
+       // No mostrar ningún juego
+    } else {
+      // Filtrar los juegos según el término de búsqueda
+      this.juegosFiltrados = this.arregloJuegos.filter((juego: any) => 
+        juego.nombre_juego.toLowerCase().includes(searchTerm)
+      );
+      this.busquedaRealizada = true;
+    }
+    
+    // Mostrar la lista filtrada en la consola
+    console.log('juegosFiltrados:', this.juegosFiltrados);
+  }
   ngOnInit() {
+
+      const limite = 6;    
+      this.api.getJuegosProximos(limite).subscribe(
+        data=>{
+          this.juegosProximos = data;
+        },
+        error=>{
+          this.bd.presentAlert('error al get juegos ',': '+JSON.stringify(error))
+          this.error = 'No se pudo cargar la información de los juegos recientes.';
+        }
+      )
+    this.bd.getJuegos();
+    this.bd.fetchJuegos().subscribe(data=>{
+      this.arregloJuegos = data;
+    })
+    this.bd.getJuegosRandom();
+    this.bd.fetchJuegosRandom().subscribe(data=>{
+      this.arregloJuegosRandom = data;
+      
+    })
   }
 
 }

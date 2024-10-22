@@ -12,68 +12,26 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+
 <ion-content [fullscreen]="true">
-     <mat-list class="lista-deseos">
+     <mat-list class="lista-deseos"  *ngIf="juegosDeseados.length > 0; else deseosVacio">
       <h1 class="titulo">Lista de deseos</h1>
-    <mat-list-item class="distancia">
+    <mat-list-item class="distancia" *ngFor="let juego of juegosDeseados">
       <ion-grid>
         <ion-row>
-          <ion-col size="6">
-            <span matListItemTitle class="negro sombra">Final Fantasy XVI</span>
-            <span matListItemLine class="negro">Playstation</span>
-            <span matListItemLine class="negro">Precio: $40.000</span>
+          <ion-col size="12" >
+            <span matListItemTitle class="negro sombra">{{juego.nombre_juego}}</span>
+            <span matListItemLine class="negro">Plataforma: {{juego.nombre_plataforma}}</span>
+            <span matListItemLine class="negro">Precio: ${{juego.precio}}</span>
             <!-- <img matListItemAvatar src="../../../assets/img/ffxvi.jpeg" alt="" class="avatar"> -->
           </ion-col>
-          <ion-col size="6" class="orden">
-            <button mat-fab extended class="boton-compra" color="primary"  (click)="botonCompra()">
+          <ion-col size="12" class="orden">
+            <button mat-fab extended class="boton-compra" color="primary"  (click)="botonCompra(juego.id_juego)">
               <mat-icon svgIcon="buy"></mat-icon>
               Comprar
             </button>
-            <button mat-fab extended class="boton-eliminar" (click)="botonEliminar()">
-              <mat-icon svgIcon="trash"></mat-icon>
-              Eliminar
-            </button>     
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </mat-list-item>
-    <mat-list-item class="distancia">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6">
-            <span matListItemTitle class="negro sombra">Baldurs Gate 3</span>
-            <span matListItemLine class="negro">Steam</span>
-            <span matListItemLine class="negro">Precio: $40.000</span>
-            <!-- <img matListItemAvatar src="../../../assets/img/ffxvi.jpeg" alt="" class="avatar"> -->
-          </ion-col>
-          <ion-col size="6" class="orden">
-            <button mat-fab extended class="boton-compra"  (click)="botonCompra()">
-              <mat-icon svgIcon="buy"></mat-icon>
-              Comprar
-            </button>
-            <button mat-fab extended class="boton-eliminar"  (click)="botonEliminar()">
-              <mat-icon svgIcon="trash"></mat-icon>
-              Eliminar
-            </button>     
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </mat-list-item>
-    <mat-list-item class="distancia">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="6">
-            <span matListItemTitle class="negro sombra">Diablo IV</span>
-            <span matListItemLine class="negro">Xbox</span>
-            <span matListItemLine class="negro">Precio: $40.000</span>
-            <!-- <img matListItemAvatar src="../../../assets/img/ffxvi.jpeg" alt="" class="avatar"> -->
-          </ion-col>
-          <ion-col size="6" class="orden">
-            <button mat-fab extended class="boton-compra" color="primary" (click)="botonCompra()">
-              <mat-icon svgIcon="buy"></mat-icon>
-              Comprar
-            </button>
-            <button mat-fab extended class="boton-eliminar"  (click)="botonEliminar()">
+            <button mat-fab extended class="boton-eliminar" (click)="botonEliminar(juego.id_juego)">
               <mat-icon svgIcon="trash"></mat-icon>
               Eliminar
             </button>     
@@ -82,6 +40,20 @@
       </ion-grid>
     </mat-list-item>
   </mat-list>
+
+
+  <ng-template #deseosVacio>
+    <ion-card text-center class="lista-deseos">
+      <ion-card-header>
+        <h1 class="ion-text-center sombra subtitulos">Lista de deseos vacia</h1>
+      </ion-card-header>
+    
+      <ion-card-content>
+       <p>Tu lista de deseos esta vacia! Añade algunos juegos!</p>
+      </ion-card-content>
+    </ion-card>
+    
+  </ng-template>
  
   
 
@@ -89,37 +61,3 @@
 
 
 <app-tabs></app-tabs>
-
-
-
-  <!-- <mat-list class="lista-deseos">
-    <mat-list-item class="distancia">
-      <span matListItemTitle class="negro">Final Fantasy XVI</span>
-      <span matListItemLine class="negro">Playstation</span>
-      <span matListItemLine class="negro">Precio: $40.000</span>
-      <img matListItemAvatar src="../../../assets/img/ffxvi.jpeg" alt="" class="avatar">
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle class="negro">Baldurs Gate 3</span>
-      <span matListItemLine class="negro">Steam</span>
-    </mat-list-item>
-    <mat-list-item>
-      <span matListItemTitle class="negro">Diablo IV</span>
-      <span matListItemLine class="negro">Xbox</span>
-    </mat-list-item>
-  </mat-list>
- -->
-  
-
-   <!-- <mat-card class="example-card" appearance="outlined">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Extra large</mat-card-subtitle>
-        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </mat-card-content>
-  </mat-card> -->

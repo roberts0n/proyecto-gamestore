@@ -21,51 +21,17 @@
     <div class="menu-editar">
       <h1 class="ion-text-center ion-padding">Juegos registrados</h1>
     <ion-row>
-      <ion-col size="12">
+      <ion-col size="12" *ngFor="let x of arregloJuegos">
         <ion-card class="carta">
           <ion-card-header>
-            <ion-card-title class="ion-text-center">Final Fantasy XVI</ion-card-title>
+            <ion-card-title class="ion-text-center">{{x.nombre_juego}}</ion-card-title>
           </ion-card-header>
           <div class="botones ion-margin">
-            <button mat-fab extended class="boton" [routerLink]="['/editar']" routerLinkActive="router-link-active" >
+            <button mat-fab extended class="boton" (click)="irEditar(x.id_juego)" >
               <mat-icon>edit</mat-icon>
               Editar
             </button>
-            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary" >
-              <mat-icon svgIcon="trash"></mat-icon>
-              Eliminar
-            </button>
-            </div>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12">
-        <ion-card class="carta">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Baldurs Gate 3</ion-card-title>
-          </ion-card-header>
-          <div class="botones ion-margin">
-            <button mat-fab extended class="boton" >
-              <mat-icon>edit</mat-icon>
-              Editar
-            </button>
-            <button  style="margin-left: 10px;" mat-fab extended class="boton2" (click)="botonEliminar()">
-              <mat-icon svgIcon="trash"></mat-icon>
-              Eliminar
-            </button>
-            </div>
-        </ion-card>
-      </ion-col>
-      <ion-col size="12">
-        <ion-card class="carta">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">Diablo IV</ion-card-title>
-          </ion-card-header>
-          <div class="botones ion-margin">
-            <button mat-fab extended class="boton">
-              <mat-icon>edit</mat-icon>
-              Editar
-            </button>
-            <button  style="margin-left: 10px;" mat-fab extended class="boton2" (click)="botonEliminar()">
+            <button  style="margin-left: 10px;" mat-fab extended class="boton2" color="primary" (click)="botonEliminar(x.id_juego)">
               <mat-icon svgIcon="trash"></mat-icon>
               Eliminar
             </button>

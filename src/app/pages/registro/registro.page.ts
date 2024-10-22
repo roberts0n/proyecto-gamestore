@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, MenuController, ToastController } from '@ionic/angular';
+import { AlertserviceService } from 'src/app/services/alertservice.service';
+import { BdserviceService } from 'src/app/services/bdservice.service';
 
 @Component({
   selector: 'app-registro',
@@ -9,74 +12,124 @@ import { AlertController, MenuController, ToastController } from '@ionic/angular
 })
 export class RegistroPage implements OnInit {
 
-  email: string ="";
+  /* email: string ="";
   usuario: string ="";
   password: string ="";
-  password2: string ="";
+  password2: string =""; */
+  formulario: FormGroup;
+  mostrarPassword: boolean = false;
+  mostrarPassword2: boolean = false;
 
-  constructor(private router:Router,private alertcontroller: AlertController,private toastController: ToastController,private menuController: MenuController) {
-    this.menuController.enable(false,'menu'); 
+  constructor(private formBuilder :  FormBuilder,private bdservice : BdserviceService, private router:Router,private menuController: MenuController,private alerta : AlertserviceService) {
+    this.menuController.enable(false,'menu');
+    this.formulario = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      usuario: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(8),this.passwordValidator()]],
+      password2: ['', [Validators.required]]
+    }, { validators: this.passwordsMatchValidator() }); 
    }
 
 
-  async alertaError(mensaje:string){
-    const alerta = await this.alertcontroller.create({
-      header: 'Error al registrarse',
-      message: mensaje,
-      buttons: ['Aceptar']
-    });
-    
-    await alerta.present();
+   verPassword() {
+    this.mostrarPassword = !this.mostrarPassword;
   }
-  async alertaRegistro(mensaje:string){
-    const toast = await this.toastController.create({
-      message: mensaje,
-      duration: 2500,
-      position: 'top',
-    });
-
-    await toast.present();
+  verPassword2() {
+    this.mostrarPassword2 = !this.mostrarPassword2;
   }
 
-  registrar(){
+
+
+
+   passwordValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+  
+      if (!value) {
+        return null;
+      }
+      const formatoPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).*$/;
+  
+      const isValid = formatoPassword.test(value);
+  
+      return !isValid ? { validezPassword: true } : null;
+    };
+  }
+
+  passwordsMatchValidator(): ValidatorFn {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const password = formGroup.get('password')?.value;
+      const password2 = formGroup.get('password2')?.value;
+  
+      return password === password2 ? null : { passwordsMismatch: true };
+    };
+  }
+
+
+  onSubmit() {
+    if(this.formulario.invalid){
+      this.alerta.presentToast('Complete todos los campos como es debido')
+      return;
+    }
+
+    const {email, usuario, password} = this.formulario.value;
+
+    this.bdservice.registroUsuario(usuario,email,password).then((registroExitoso)=>{
+      if(registroExitoso){
+        this.router.navigate(['/login']);
+        this.alerta.presentToast('Registro exitoso!')
+      }
+    }).catch((error)=>{
+      this.alerta.presentToast('error al registrar'+error)
+    })
+
+    }
+
+  /* registrar(){
 
 
     if( !this.email|| !this.usuario|| !this.password){
-      this.alertaError('No puedes dejar campos vacios')
+      this.alerta.presentToast('No puedes dejar campos vacios!')
       return;
     };
 
 
     const formatoEmail =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!formatoEmail.test(this.email)){
-      this.alertaError('Correo invalido.')
+      this.alerta.presentToast('Correo invalido!')
       return;
     };
 
     if (this.password.length<=8){
-      this.alertaError('la contraseña debe tener mas de 8 caracteres.')
+      this.alerta.presentToast('la contraseña debe tener mas de 8 caracteres!')
       return;
     }
 
     const formatoPassword = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).*$/;
     if(!formatoPassword.test(this.password)){
-      this.alertaError('La contraseña debe contener como minimo una mayuscula,un numero y un simbolo.')
+      this.alerta.presentToast('La contraseña debe contener como minimo una mayuscula,un numero y un simbolo!')
       return;
     }
-
     if(this.password===this.password2){
-      this.router.navigate(['/login']);
-      this.alertaRegistro('Registro exitoso!')
+      this.bdservice.registroUsuario(this.usuario,this.email,this.password).then((registroExitoso)=>{
+        if(registroExitoso){
+          this.router.navigate(['/login']);
+          this.alerta.presentToast('Registro exitoso!')
+        }
+      }).catch((error)=>{
+        this.alerta.presentToast('error al registrar'+error)
+      })
     }else{
-      this.alertaError('Las claves no coinciden')
+      this.alerta.presentToast('Las claves no coinciden!')
     }
-
-
-
   }
-
+ */
 
   ngOnInit() {
+    this.formulario.reset();
   }
 
 }
+
+/* this.router.navigate(['/login']);
+this.alertaRegistro('Registro exitoso!') */

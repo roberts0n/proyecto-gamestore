@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { BdserviceService } from 'src/app/services/bdservice.service';
 
 @Component({
   selector: 'app-editar-cuentas',
@@ -9,9 +10,25 @@ import { ToastController } from '@ionic/angular';
 })
 export class EditarCuentasPage implements OnInit {
 
-  constructor(private toastController : ToastController,private router:Router) { }
+  arregloUsuarios: any = [{
+    idUsuario: '',
+    nombre: '',
+    idRol : ''
+
+  }]
+
+  constructor(private toastController : ToastController,private router:Router,private bd: BdserviceService) { }
 
   ngOnInit() {
+
+    this.bd.adminUsuarios(); 
+
+    this.bd.fetchUsuarios().subscribe(data=>{
+      this.arregloUsuarios = data;
+       /* this.bd.presentAlert('editar perfiles admin','datos : '+JSON.stringify(data));  */
+    })
+
+    
   }
 
   async alertaBoton(mensaje:string){
@@ -24,12 +41,24 @@ export class EditarCuentasPage implements OnInit {
     await toast.present();
   }
 
-  botonEliminar(){
+  bloquear(id : number){
+    this.bd.bloquearUsuario(id)
+  }
 
-    this.alertaBoton('usuario eliminado con exito!')
+  desbloquear(id : number){
+    this.bd.desbloquearUsuario(id)
 
 
   }
+
+  quitarAdmin(id : number){
+    this.bd.revocarAdmin(id)
+  }
+
+  darAdmin(id : number){
+    this.bd.darAdmin(id)
+  }
+
 
 
 }

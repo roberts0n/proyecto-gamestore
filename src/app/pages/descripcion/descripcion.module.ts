@@ -11,6 +11,9 @@ import { TabsComponent } from 'src/app/components/tabs/tabs.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+
 
 @NgModule({
   imports: [
@@ -23,6 +26,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatIconModule
   ],
-  declarations: [DescripcionPage]
+  declarations: [DescripcionPage],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class DescripcionPageModule {}

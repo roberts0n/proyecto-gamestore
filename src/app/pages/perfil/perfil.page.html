@@ -19,16 +19,16 @@
   <div class="">
     <h1 class="ion-text-center sombra">Mi perfil</h1>
     <div class="centrado">
-      <div class="info">
+      <div class="info" *ngIf="usuario">
         <ion-grid>
           <ion-row class="cuadrado">
             <ion-col size="6">
-              <img src="../../../assets/img/ffxvi.jpeg" width="" class="foto-perfil">
+              <img src="{{usuario.imagen || '../../../assets/img/guest.jpg'}}" width="" class="foto-perfil">
             </ion-col>
             <ion-col size="6" class="centro">
-              <h1 class="sombra ion-padding ion-text-center">Usuario</h1>
-              <h5 class="ion-text-center subtitulo">correo&#64;gmail.com</h5>
-              <h5 class="ion-text-center">Edad : 20 años</h5>
+              <h1 class="sombra ion-padding ion-text-center">{{usuario.nombre}}</h1>
+              <h5 class="ion-text-center subtitulo">{{usuario.email}}</h5>
+              <h5 class="ion-text-center">Edad : {{usuario.edad || 'Edad sin asignar'}}</h5>
             </ion-col>
             <ion-col class="editar2">
               <!-- <ion-button>Editar perfil</ion-button> -->
@@ -41,21 +41,29 @@
         </ion-grid>
       </div>
     </div>
-    <ion-list class="lista">
+    <ion-list class="lista" *ngIf="juegosCompra.length > 0; else compraVacia">
       <h1 class="ion-text-center sombra">Tus juegos</h1>
-      <ion-item class="ion-padding lista-item"  lines="none">
-        <h1>Final Fantasy XVI</h1>
-        <img src="../../../assets/img/ffxvi.jpeg" alt="" width="150px" class="">
+      <ion-item class="ion-padding lista-item"  lines="none" *ngFor="let juego of juegosCompra">
+        <h1>{{juego.nombre_juego}}</h1>
+        <img [src]="juego.imagen" alt="" width="150px" class="">
       </ion-item>
-      <ion-item class="ion-padding lista-item "  lines="none">
+      <!-- <ion-item class="ion-padding lista-item "  lines="none">
         <h1>Baldurs Gate 3</h1>
         <img src="../../../assets/img/bg3.jpg" alt="" width="150px" class="">
       </ion-item>
       <ion-item class="ion-padding lista-item" lines="none">
         <h1>Diablo 4</h1>
         <img src="../../../assets/img/d4.png" alt="" width="150px" class="">
-      </ion-item>
+      </ion-item> -->
     </ion-list>
+
+
+    <ng-template #compraVacia>
+      <div text-center>
+        <h2>No has comprado nada todavia.</h2>
+        <p>Compra algunos juegos de nuestra tienda!</p>
+      </div>
+    </ng-template>
   </div>
  <br>
 </ion-content>

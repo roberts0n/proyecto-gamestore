@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { BdserviceService } from 'src/app/services/bdservice.service';
 
 @Component({
   selector: 'app-editar-juegos',
@@ -9,9 +10,27 @@ import { ToastController } from '@ionic/angular';
 })
 export class EditarJuegosPage implements OnInit {
 
-  constructor(private toastController : ToastController,private router:Router) { }
+  arregloJuegos : any = [{
+    idJuego : '',
+    nombre_juego : '',
+    precio : '',
+    nombre_plataforma : '',
+    nombre_categoria : '',
+    descripcion : '',
+    imagen : ''
 
+  }]
+
+  constructor(private toastController : ToastController,private router:Router,private bd : BdserviceService) { }
+
+  
   ngOnInit() {
+
+    this.bd.getJuegos();
+
+    this.bd.fetchJuegos().subscribe(data=>{
+      this.arregloJuegos = data;
+    })
   }
 
   async alertaBoton(mensaje:string){
@@ -24,11 +43,27 @@ export class EditarJuegosPage implements OnInit {
     await toast.present();
   }
 
-  botonEliminar(){
-
-    this.alertaBoton('Juego eliminado con exito!')
+  botonEliminar(id : number){
 
 
+    this.bd.deleteJuego(id)
   }
+
+
+  irEditar(id : number){
+
+
+    let navigationextras : NavigationExtras = {
+      state:{
+        id : id
+      }
+    }
+    this.router.navigate(['/editar'], navigationextras).then(success => {
+      console.log('Navegación exitosa:', success);
+    }).catch(error => {
+      console.error('Error en la navegación:', error);
+    });
+  }
+
 
 }

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import {
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, MenuController, ToastController } from '@ionic/angular';
+import { AlertserviceService } from 'src/app/services/alertservice.service';
+import { BdserviceService } from 'src/app/services/bdservice.service';
 
 @Component({
   selector: 'app-login',
@@ -12,66 +13,77 @@ import { AlertController, MenuController, ToastController } from '@ionic/angular
 })
 export class LoginPage implements OnInit {
 
-  usuario: string = "";
-  password: string = "";
+  /* usuario: string = "";
+  password: string = ""; */
+  formulario: FormGroup;
+  mostrarPassword: boolean = false;
+  
 
   usuarioAdmin: string ="admin";
   passwordAdmin: string = "hola12345"
 
-
-  
-
-  constructor(private router:Router,private alertcontroller: AlertController,private toastController: ToastController,private menuController: MenuController) {
+  constructor(private formBuilder :  FormBuilder,private router:Router,private menuController: MenuController,private bd: BdserviceService,private alerta : AlertserviceService) {
     this.menuController.enable(false,'menu');
+    this.formulario = this.formBuilder.group({
+      usuario: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    });
    }
   ngOnInit() {
-  }
-
-  async alertaError(mensaje:string){
-    const alerta = await this.alertcontroller.create({
-      header: 'Error al logear',
-      message: mensaje,
-      buttons: ['Aceptar']
-    });
+    const token = localStorage.getItem('authToken');
+    const id_usuario = localStorage.getItem('usuarioId');
+    if (token) {
+      this.router.navigate(['/inicio'])
+     }
     
-    await alerta.present();
-  }
-  async alertaLogin(mensaje:string){
-    const toast = await this.toastController.create({
-      message: mensaje,
-      duration: 2500,
-      position: 'top',
-    });
-
-    await toast.present();
   }
 
-  verificarLogin(){
+   ionViewWillEnter() {
+    this.mostrarPassword = false;
+   /*  this.usuario = '';
+    this.password = ''; */
+    this.formulario.reset();
+  } 
 
-   /*  console.log(`Usuario ingresado: ${this.usuario}`);
-    console.log(`Contraseña ingresada: ${this.password}`);
-    console.log(`Usuario admin: ${this.usuarioAdmin}`);
-    console.log(`Contraseña admin: ${this.passwordAdmin}`);
-   */
+  verPassword() {
+    this.mostrarPassword = !this.mostrarPassword;
+  }
 
-    if (this.usuario.trim()==="" || this.password.trim()===""){
-       this.alertaError('No puedes dejar campos vacios');
-       return;
-   };
+  onSubmit(){
+    if(this.formulario.valid){
+      this.verificarLogin();
+    }
+  }
 
-   if (this.usuario===this.usuarioAdmin && this.password===this.passwordAdmin ){
-    this.router.navigate(['/inicio']);
-    this.alertaLogin('Logeo exitoso! disfruta de nuestra tienda')
-    this.menuController.enable(true,'menu');
-   }
-   else{
-      this.alertaError('Los datos no coinciden');
+
+  borrarUsuarios() {
+    this.bd.borrarUsuarios();
+  }
+
+
+
+  async verificarLogin() {
+    /* if (this.usuario.trim() === "" || this.password.trim() === "") {
+      this.alerta.presentToast('No puedes dejar campos vacios')
       return;
-   }
+    } */
 
-  };
+    
+    const usuario = this.formulario.get('usuario')?.value;
+    const password = this.formulario.get('password')?.value; 
+    const isLoggedIn = await this.bd.verificarLogin(usuario, password);
+    
+    if (isLoggedIn) {
+      this.router.navigate(['/inicio']);
+      this.menuController.enable(true, 'menu');
+    } /* else {
+      this.alerta.presentToast('Los datos no coinciden!')
+    } */
+  }
 
 }
+
+
 
 
 

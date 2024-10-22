@@ -12,6 +12,23 @@ ion-item.lista-item ion-label {
     margin-left: 10px;
 }
 
+.carro-subs{
+    font-size:17px;
+}
+
+.subtitulos{
+    color: #000000;
+}
+
+ion-thumbnail {
+    --size: 100px;
+    --border-radius: 14px;
+    border-radius: 20px;
+    border: 2px solid #000000; 
+    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.5);
+  }
+
+
 .boton{
     
     display: flex;
@@ -67,13 +84,18 @@ ion-item::part(native) {
 }
 
 .boton-delete{
-    margin-top: 15px;
+     margin-top: 15px;
     margin-bottom: 5px;
-    margin-left: 83px;
+    margin-left: 83px; 
     background-color: rgba(219, 81, 1, 0.753)
 }
 
+/* .deleteado{
 
+    
+    
+}
+ */
 @media (max-width:424px)  {
     .boton-delete{
         display: flex;

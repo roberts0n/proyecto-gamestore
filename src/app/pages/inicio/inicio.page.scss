@@ -1,8 +1,4 @@
-ion-card-title,
-ion-card-subtitle,
-ion-card-content {
- /*  color: #ffffff; */ 
-}
+
 
 .carta{
     color: #000000;
@@ -19,6 +15,14 @@ ion-card-content {
     border-radius: 10px;
     
 }
+
+ion-searchbar {
+    --background: rgba(138, 235, 217, 0.767); /* Color de fondo */
+    --color: #000; /* Color del texto */
+    --placeholder-color: #000000; /* Color del texto del placeholder */
+    --border-color: #000000; /* Color del borde */
+    --border-radius: 10px; /* Esquinas redondeadas */
+  }
 
 .expositor2{
     margin: 5px;
